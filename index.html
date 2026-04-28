@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Lista de Emails</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f6f9;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: #2c3e50;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    background: #34495e;
+}
+
+.tab-btn {
+    padding: 10px 20px;
+    cursor: pointer;
+    color: white;
+    border: none;
+    background: none;
+}
+
+.tab-btn.active {
+    background: #1abc9c;
+}
+
+.container {
+    display: none;
+    padding: 20px;
+}
+
+.container.active {
+    display: block;
+}
+
+.card {
+    background: white;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+button {
+    padding: 5px 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+}
+
+.copy {
+    background: #3498db;
+    color: white;
+}
+
+.topo {
+    text-align: center;
+    margin: 15px;
+}
+
+.topo button {
+    background: #27ae60;
+    color: white;
+    margin: 5px;
+}
+
+footer {
+    background: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-size: 14px;
+}
+
+body {
+    padding-bottom: 50px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h2>Lista de Emails dos Estudantes</h2>
+</header>
+
+<div class="topo">
+    <button onclick="copiarSite()">Copiar site MS Speaks</button>
+    <button onclick="abrirGuiado()">Instruções aqui!</button>
+</div>
+
+<div class="tabs">
+    <button id="btn-anoA" class="tab-btn" onclick="trocarAba('anoA')">1º Ano A</button>
+    <button id="btn-anoB" class="tab-btn" onclick="trocarAba('anoB')">1º Ano B</button>
+	<button id="btn-ano2A" class="tab-btn" onclick="trocarAba('ano2A')">2º Ano A</button>
+	<button id="btn-ano3B" class="tab-btn" onclick="trocarAba('ano3B')">3º Ano B</button>
+	<button id="btn-info" class="tab-btn" onclick="trocarAba('info')">Sobre o MS Speaks</button>
+</div>
+
+<div id="anoA" class="container"></div>
+<div id="anoB" class="container"></div>
+<div id="ano2A" class="container"></div>
+<div id="ano3B" class="container"></div>
+
+<!-- GUIA -->
+<div id="guia" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:#000000aa; justify-content:center; align-items:center;">
+    <div style="background:white; padding:20px; border-radius:10px; text-align:center;">
+    <p id="passo"></p>
+    
+    <button onclick="proximoPasso()">Próximo</button>
+    <button onclick="fecharGuiado()" style="background:#e74c3c; color:white;">Fechar</button>
+</div>
+</div>
+
+<div id="info" class="container">
+    <h3>📘 O que é o MS Speaks?</h3>
+
+    <p>
+        O estudante utilizará este e-mail institucional para acessar um curso de inglês gratuito,
+        oferecido pela Secretaria de Estado de Educação de Mato Grosso do Sul (SED-MS),
+        em parceria com a EF Education.
+    </p>
+	
+	<p style="background:#eafaf1; padding:10px; border-radius:8px;">
+    👉 <b>Importante:</b> Use seu e-mail escolar corretamente, pois ele será necessário para acessar o curso.
+	</p>
+
+    <h4>🎯 Entenda por que você está acessando esta página:</h4>
+
+    <p>
+        O <b>MS Speaks</b> é uma plataforma educacional criada para fortalecer o ensino de Língua Inglesa
+        na Rede Estadual de Ensino. A iniciativa atende estudantes do Ensino Médio e professores,
+        oferecendo um ambiente moderno com recursos interativos e tecnologia de Inteligência Artificial.
+    </p>
+
+    <p>
+        A partir de 2025, os estudantes passaram a receber acesso à plataforma por meio do e-mail institucional,
+        podendo criar seu perfil e iniciar o curso gratuitamente, em qualquer horário e dispositivo.
+    </p>
+
+    <p>
+        A plataforma oferece conteúdos desde o nível iniciante até avançado, além de cursos temáticos como:
+    </p>
+
+    <ul>
+        <li>Inglês para negócios</li>
+        <li>Inglês técnico</li>
+        <li>Inglês para viagens</li>
+    </ul>
+
+    <p>
+        Além disso, conta com recursos como:
+    </p>
+
+    <ul>
+        <li>Aulas interativas</li>
+        <li>Práticas com Inteligência Artificial</li>
+        <li>Possibilidade de aprender outros idiomas</li>
+    </ul>
+
+    <p>
+        Essa iniciativa busca ampliar as oportunidades dos estudantes, preparando-os para o futuro,
+        o mercado de trabalho e a comunicação global.
+    </p>
+
+    <p style="margin-top:20px; font-style:italic;">
+        Fonte: Secretaria de Estado de Educação de Mato Grosso do Sul (SED-MS)
+    </p>
+</div>
+
+<script>
+function copiarEmail(email) {
+    navigator.clipboard.writeText(email);
+    alert("Email copiado!");
+}
+
+function abrirSite() {
+    window.open("https://msspeaks.efekta.com", "_blank");
+}
+
+function trocarAba(aba) {
+    document.querySelectorAll(".container").forEach(c => c.classList.remove("active"));
+    document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+
+    document.getElementById(aba).classList.add("active");
+    document.getElementById("btn-" + aba).classList.add("active");
+}
+
+function gerarLista(id, dados) {
+    const container = document.getElementById(id);
+
+    dados.forEach(pessoa => {
+        const div = document.createElement("div");
+        div.className = "card";
+
+        div.innerHTML = `
+            <div>
+                <strong>${pessoa[0]}</strong><br>
+                ${pessoa[1]}
+            </div>
+            <button class="copy" onclick="copiarEmail('${pessoa[1]}')">Copiar</button>
+        `;
+
+        container.appendChild(div);
+    });
+}
+
+/* GUIA */
+let etapa = 0;
+
+function abrirGuiado() {
+    document.getElementById("guia").style.display = "flex";
+    etapa = 0;
+    atualizarPasso();
+}
+
+function proximoPasso() {
+    etapa++;
+    atualizarPasso();
+}
+
+function atualizarPasso() {
+    const texto = document.getElementById("passo");
+
+    if (etapa === 0) {
+    texto.innerHTML = `
+        ⚠️ <b>Atenção:</b><br><br>
+        Antes de continuar, clique no botão <b>“Copiar site MS Speaks”</b>.<br><br>
+        Depois volte aqui e avance para o próximo passo.
+    `;
+	} 
+else if (etapa === 1) {
+    texto.innerHTML = `
+        Agora pressione <b>Ctrl + Shift + N</b> para abrir o modo anônimo.<br><br>
+
+        Em seguida, <b>volte para a página da sua turma</b> e copie o seu e-mail.<br><br>
+
+        Depois, na janela anônima, <b>cole o site (Ctrl + V)</b> na barra de endereço e utilize seu e-mail para acessar.<br><br>
+
+        ✅ Pronto! Agora é só entrar no sistema.
+    `;
+}
+  
+}
+function copiarSite() {
+    const site = "https://msspeaks.efekta.com";
+    navigator.clipboard.writeText(site);
+    alert("Site copiado! Agora abra no modo anônimo.");
+}
+
+function fecharGuiado() {
+    document.getElementById("guia").style.display = "none";
+}
+
+/* DADOS */
+document.addEventListener("DOMContentLoaded", () => {
+
+const anoA = [
+    ["ALLYFFER ASSAD MENDES","allyffer.1411075@edutec.sed.ms.gov.br"],
+    ["ANA FLÁVIA DA SILVA MIRANDA","ana.983567@edutec.sed.ms.gov.br"],
+    ["ANA GABRIELA CARVALHO ROMAGNOLO","ana.1303206@edutec.sed.ms.gov.br"],
+    ["ANDRYW RODRIGUES DE OLIVEIRA","andryw.1295532@edutec.sed.ms.gov.br"],
+    ["ANTONY BRIAN RIPARI DR OLIVEIRA","antony.1398590@edutec.sed.ms.gov.br"],
+    ["BEATRIZ FELIX DE ALMEIDA","beatriz.1407209@edutec.sed.ms.gov.br"],
+    ["BRAYAN BENJAMN AJNO ORELLANA","brayan.1413458@edutec.sed.ms.gov.br"],
+    ["DANIEL EVANGELISTA SORRILHA","daniel.844277@edutec.sed.ms.gov.br"],
+    ["DARYCK FELLYPE CHIRIMANI DA SILVA","daryck.1423561@edutec.sed.ms.gov.br"],
+    ["DIEGO AGUILAR DUTRA","diego.1256085@edutec.sed.ms.gov.br"],
+    ["DIOGO GERMANO DOS SANTOS","diogo.1360411@edutec.sed.ms.gov.br"],
+    ["DUANNY HELENA MARTINS CORREIA","duanny.1315716@edutec.sed.ms.gov.br"],
+    ["EDUARDO HENRIQUE VALDONADO RAMOS DAS NEVES","eduardo.938383@edutec.sed.ms.gov.br"],
+    ["EMANUELLY EVANGELISTA SORRILHA","emanuelly.931578@edutec.sed.ms.gov.br"],
+    ["ESCARLET VACA VACA","escarlet.1405097@edutec.sed.ms.gov.br"],
+    ["EVELYN VICTÓRIA HAUCK DE SOUSA","evelyn.1233049@edutec.sed.ms.gov.br"],
+    ["FLÁVIA EDUARDA DE ALMEIDA SILVA","flavia.1335328@edutec.sed.ms.gov.br"],
+    ["GABRIEL AARON CASTRO ROCHA","gabriel.1420425@edutec.sed.ms.gov.br"],
+    ["GABRIEL LIMA RODRIGUES","gabriel.1052655@edutec.sed.ms.gov.br"],
+    ["GIULIA JANAINA NUNES DA SILVA","giulia.1256369@edutec.sed.ms.gov.br"],
+    ["GEANY VITORIA CONCEIÇÃO GUTIERREZ","geany.1301983@edutec.sed.ms.gov.br"],
+    ["HELOISA DA SILVA CONCEIÇÃO","heloisa.1260508@edutec.sed.ms.gov.br"],
+    ["ISABELA SANTOS SOLETO","isabela.1365957@edutec.sed.ms.gov.br"],
+    ["ISABELY KELLY MACIEL PEREIRA","isabely.939751@edutec.sed.ms.gov.br"],
+    ["IZAQUIEL DA SILVA CRUZ VERA","izaquiel.1005743@edutec.sed.ms.gov.br"],
+    ["JOÃO PEDRO LEONCIO SOARES","joao.1269130@edutec.sed.ms.gov.br"],
+    ["LARISSA ESTER ORTIZ AMARAL","larissa.1019550@edutec.sed.ms.gov.br"],
+    ["LUANA GEMIO DUARTE","luana.1366073@edutec.sed.ms.gov.br"],
+    ["LUCAS KAUA DE OLIVEIRA GUSSACE","lucas.1412838@edutec.sed.ms.gov.br"],
+    ["LUCAS VINICIUS PEREIRA FLORIANO","lucas.1426784@edutec.sed.ms.gov.br"],
+    ["LUIZA LOPES GOMES","luiza.1290781@edutec.sed.ms.gov.br"],
+    ["MARIA RENIL RAMIREZ DOS SANTOS","maria.1417280@edutec.sed.ms.gov.br"],
+    ["MICKAELLY LUANY CAMPOS GUTIERRI","mickaelly.1368295@edutec.sed.ms.gov.br"],
+    ["NICOLLY RIBEIRO DA SILVA","nicolly.1286662@edutec.sed.ms.gov.br"],
+    ["PAOLA SOFIA DA SILVA DE SOUZA","paola.1361869@edutec.sed.ms.gov.br"],
+    ["RAFAEL VARGAS DE ANDRADE","rafael.1417787@edutec.sed.ms.gov.br"],
+    ["TACILLA VITÓRIA NASCIMENTO FERREIRA","tacilla.1323509@edutec.sed.ms.gov.br"],
+    ["YASMIN BRUNO ANTUNES","yasmin.1061344@edutec.sed.ms.gov.br"]
+    ];
+	
+	const anoB = [
+["AGATHA JÚLIA CAMPOS DE ALMEIDA","agatha.949862@edutec.sed.ms.gov.br"],
+["ANA MIRELLA DE SOUZA PEREIRA","ana.1104817@edutec.sed.ms.gov.br"],
+["ANA RAFAELLY DE OLIVEIRA RAMIRES","ana.1317781@edutec.sed.ms.gov.br"],
+["ARIADYNE SALES RODRIGUES MOREIRA","ariadyne.1418276@edutec.sed.ms.gov.br"],
+["DAVI GABRIEL PEREIRA LOPEZ THEOBALD","davi.1426926@edutec.sed.ms.gov.br"],
+["ERICK BARROS FERNANDES","erick.1328652@edutec.sed.ms.gov.br"],
+["EYCKY LOUGAS MACIEL BRANDAO","eycky.1317288@edutec.sed.ms.gov.br"],
+["FABIO SANTOS VITORINO PEREIRA","fabio.1415166@edutec.sed.ms.gov.br"],
+["FERNANDO HENRIQUE SANTOS PEREIRA","fernando.1041983@edutec.sed.ms.gov.br"],
+["GABRIEL VITORIO RAMOS NAVARROS","gabriel.1421098@edutec.sed.ms.gov.br"],
+["GABRIELLY CASSEMIRO DE ALMEIDA","gabrielly.917389@edutec.sed.ms.gov.br"],
+["HÉLIO SAMUEL MENDES DA SILVA TAVARES","helio.864393@edutec.sed.ms.gov.br"],
+["IZADORA PASSARIN DA SILVA CAMBUI","izadora.1406555@edutec.sed.ms.gov.br"],
+["JEFERSON DE MELO OLIVEIRA","jeferson.1413894@edutec.sed.ms.gov.br"],
+["JENNY YASMIN SOARES SILVA SANTOS","jenny.1045542@edutec.sed.ms.gov.br"],
+["JOÃO VICTOR YORAN PIMENTA","joao.841112@edutec.sed.ms.gov.br"],
+["KEIRRISON DE JESUS MONTEIRO","keirrison.1121426@edutec.sed.ms.gov.br"],
+["LUCIANO FONTENELE CARVALHO CRUZ SOUZA","luciano.1466073@edutec.sed.ms.gov.br"],
+["LUIZ GUILHERME DA SILVA PADILHA","luiz.920080@edutec.sed.ms.gov.br"],
+["LUIZ HENRIQUE DA SILVA PORTO","luiz.1382834@edutec.sed.ms.gov.br"],
+["MANUELLA GONÇALVES DE ALMEIDA","manuella.1365292@edutec.sed.ms.gov.br"],
+["MARIA EDUARDA GIMENES DE JESUS","maria.1231066@edutec.sed.ms.gov.br"],
+["MARIA ISADORA DO AMARAL SIADE","maria.1412840@edutec.sed.ms.gov.br"],
+["MIRIAN CAMPOS DA SILVA","mirian.874496@edutec.sed.ms.gov.br"],
+["MYLENA DIAS DE ARRUDA","mylena.1284457@edutec.sed.ms.gov.br"],
+["MYLLENA SILVA DE OLIVEIRA","myllena.1408790@edutec.sed.ms.gov.br"],
+["PABLO GABRIEL JESUS DE LIMA","pablo.1478166@edutec.sed.ms.gov.br"],
+["RAYSSA ALVES VILAMAIOR","rayssa.1139257@edutec.sed.ms.gov.br"],
+["RENAN MEDEIROS DE JESUS","renan.1336595@edutec.sed.ms.gov.br"],
+["RENE CÉSAR SILVA DE ABREU","rene.1426887@edutec.sed.ms.gov.br"],
+["ROBERTO RODRIGUES DE FREITAS NETO","roberto.1261571@edutec.sed.ms.gov.br"],
+["SAMUEL JORGE DELGADO DA SILVA ALBUQUERQUE","samuel.1315809@edutec.sed.ms.gov.br"],
+["THEYLOR ARTEAGA GOMES","theylor.1307056@edutec.sed.ms.gov.br"],
+["VAGNER DO ESPIRITO SANTO","vagner.916308@edutec.sed.ms.gov.br"],
+["VALENTINA CLEMENCIO DA SILVA","valentina.1014473@edutec.sed.ms.gov.br"],
+["VITOR HUGO SILVA DE OLIVEIRA","vitor.1418606@edutec.sed.ms.gov.br"],
+["WADSON OLIVEIRA DE SOUZA","wadson.1407100@edutec.sed.ms.gov.br"],
+["WELTON JOSÉ MENDES PESSOA","welton.1363892@edutec.sed.ms.gov.br"]
+];
+	
+const ano2A = [
+["ABNER FELIPE DE OLIVEIRA AMORIM","abner.1362729@edutec.sed.ms.gov.br"],
+["ALANA GABRIELLA RODRIGUES DOS SANTOS","alana.951981@edutec.sed.ms.gov.br"],
+["AMANDA FIGUEIREDO VILALVA","amanda.1359340@edutec.sed.ms.gov.br"],
+["AMANDA GABRIELI DA SILVA REZZ","amanda.1290222@edutec.sed.ms.gov.br"],
+["ANA JULIA FONTOURA BALBUENA","ana.1315030@edutec.sed.ms.gov.br"],
+["ANA LUIZA SENA DE MEDEIROS","ana.1216789@edutec.sed.ms.gov.br"],
+["ANA VITÓRIA MEDEIROS MOREIRA FELIX","ana.1224794@edutec.sed.ms.gov.br"],
+["ANDRE LUCAS VIEIRA MENACHO","andre.1339934@edutec.sed.ms.gov.br"],
+["ARIADNNY GOMES DE SOUZA","ariadnny.1379162@edutec.sed.ms.gov.br"],
+["BRUNNA EVELYN PREZA PEREIRA","brunna.1008260@edutec.sed.ms.gov.br"],
+["BRUNO TOLEDO DE ARRUDA","bruno.836849@edutec.sed.ms.gov.br"],
+["CARLOS WILLIAN DO CARMO MARTINS","carlos.1379628@edutec.sed.ms.gov.br"],
+["CAUÃ GABRIEL DE ARRUDA FERNANDO","caua.897349@edutec.sed.ms.gov.br"],
+["DAIANE FRANÇA","daiane.877776@edutec.sed.ms.gov.br"],
+["DURVAL PEREIRA FRADE NETO","durval.1085935@edutec.sed.ms.gov.br"],
+["EDUARDO MONASTÉRIO DE MORAES","eduardo.668994@edutec.sed.ms.gov.br"],
+["EMANUELY CRISTINI DE OLIVEIRA ARRUDA","emanuely.912773@edutec.sed.ms.gov.br"],
+["ENY SOFFIA TOLEDO COSTA","eny.1238533@edutec.sed.ms.gov.br"],
+["ERICK PIERRI MEDEIROS","erick.1057577@edutec.sed.ms.gov.br"],
+["FABRICIO JUNIOR DE OLIVEIRA GONÇALVES BARONI","fabricio.1420402@edutec.sed.ms.gov.br"],
+["HELOYZA ROCHA LOPES","heloyza.1083606@edutec.sed.ms.gov.br"],
+["HEMILY MAYARA GILL CORREA","hemily.1362177@edutec.sed.ms.gov.br"],
+["IGOR ALVES RODRIGUES","igor.1222962@edutec.sed.ms.gov.br"],
+["JOSELAINE DIAS DE SOUZA","joselaine.1309392@edutec.sed.ms.gov.br"],
+["LEONARDO SILVA DE SOUZA","leonardo.1357307@edutec.sed.ms.gov.br"],
+["LUAN KETHERSON AIREZ DE OLIVEIRA","luan.945447@edutec.sed.ms.gov.br"],
+["LUANNA AYALA DA SILVA","luanna.1370016@edutec.sed.ms.gov.br"],
+["LUCAS GABRIEL DA COSTA ARAUJO","lucas.1315803@edutec.sed.ms.gov.br"],
+["MARIA EDUARDA DA SILVA CHARUPA","maria.1240921@edutec.sed.ms.gov.br"],
+["MARIO MARCIO DOS SANTOS CAVALCANTE FILHO","mario.1363999@edutec.sed.ms.gov.br"],
+["NATHALLY BARCELOS FRAGOSO","nathally.1106478@edutec.sed.ms.gov.br"],
+["NELLYEND MARGARIDO DE SOUZA","nellyend.1166254@edutec.sed.ms.gov.br"],
+["PEDRO HENRIQUE DO NASCIMENTO RODRIGUES","pedro.1240496@edutec.sed.ms.gov.br"],
+["RAIANY ALANA DE MORAES ALVES","raiany.1317786@edutec.sed.ms.gov.br"],
+["SARA LAVINIA PAREDES PILAR","sara.950617@edutec.sed.ms.gov.br"],
+["SARAH FERREIRA DA SILVA","sarah.1148435@edutec.sed.ms.gov.br"],
+["VINÍCIUS PEREIRA GUIMARÃES","vinicius.1363842@edutec.sed.ms.gov.br"],
+["YASMIN VITORIA ALENCASTRO DE ARRUDA BONFIM","yasmin.1374504@edutec.sed.ms.gov.br"]
+];
+
+const ano3B = [
+["ALEIDA LEMOS DE CARVALHO DA SILVA","aleida.1311106@edutec.sed.ms.gov.br"],
+["ANA LIDIA PEREIRA FLORIANO","ana.1338055@edutec.sed.ms.gov.br"],
+["BRENDA LUIZA MARTINS DE ALBUQUERQUE","brenda.1338900@edutec.sed.ms.gov.br"],
+["CAMILLY APARECIDA DO NASCIMENTO VELASQUES","camilly.759224@edutec.sed.ms.gov.br"],
+["CARLOS AUGUSTO DAMACENO MONTEIRO","carlos.1323834@edutec.sed.ms.gov.br"],
+["CARMEM GIOVANNA SOARES GONÇALES","carmem.1314464@edutec.sed.ms.gov.br"],
+["CLARA ALICE MORAES MAIA","clara.1319270@edutec.sed.ms.gov.br"],
+["CLARA DE AQUINO DA SILVA","clara.1329767@edutec.sed.ms.gov.br"],
+["DALVA MARIA PROENÇA DE ARRUDA","dalva.1315731@edutec.sed.ms.gov.br"],
+["DAYARA JULIAO DA SILVA","dayara.1324399@edutec.sed.ms.gov.br"],
+["DIONÍSIO CALONGA DA SILVA FILHO","dionisio.1312588@edutec.sed.ms.gov.br"],
+["EDLYN JOANA ROMA PANTOJA","edlyn.1313415@edutec.sed.ms.gov.br"],
+["EMANUEL RÔA DE CARVALHO","emanuel.1285943@edutec.sed.ms.gov.br"],
+["GIULIA EDUARDA SIMÃO SOARES","giulia.931485@edutec.sed.ms.gov.br"],
+["ITALO DA SILVA ARRUDA DOS SANTOS","italo.1312917@edutec.sed.ms.gov.br"],
+["JOÃO PEDRO RUAS BRITTIZ","joao.1318048@edutec.sed.ms.gov.br"],
+["JULIA EMÍLIA NASCIMENTO FERREIRA DA SILVA","julia.1312571@edutec.sed.ms.gov.br"],
+["KAUANNY GARCIA SURUBI","kauanny.1302822@edutec.sed.ms.gov.br"],
+["KAUANY HELLEN NUNES GARAY","kauany.1314564@edutec.sed.ms.gov.br"],
+["KAUANY RODRIGUES DE ARRUDA","kauany.1320096@edutec.sed.ms.gov.br"],
+["LOHAINNY TONELLE DA SILVA","lohainny.1316947@edutec.sed.ms.gov.br"],
+["LUAHA GOMES NAVARROS","luaha.1285958@edutec.sed.ms.gov.br"],
+["LUIZ CARLOS DE ARRUDA CESARIO DA SILVA","luiz.1207480@edutec.sed.ms.gov.br"],
+["MARIA EDUARDA PEREIRA DOS SANTOS AQUINO","maria.1320601@edutec.sed.ms.gov.br"],
+["MARIA VICTORIA MAGALHÃES GIL","maria.1321273@edutec.sed.ms.gov.br"],
+["MARLON JOÃO DA SILVA GONÇALVES","marlon.1202757@edutec.sed.ms.gov.br"],
+["MATHEUS CAMILO CACEREZ MENDES","matheus.1320194@edutec.sed.ms.gov.br"],
+["MATHEUS FELIPE FERNANDEZ DA CONCEIÇÃO","matheus.1278063@edutec.sed.ms.gov.br"],
+["MAYSA DE ÁVILA GONÇALVES","maysa.1341370@edutec.sed.ms.gov.br"],
+["MIRIÃ JÉSSICA DA SILVA SANTOS","miria.1310332@edutec.sed.ms.gov.br"],
+["MONIQUE CUELLAR DA SILVA","monique.1313221@edutec.sed.ms.gov.br"],
+["NAYARA JULIÃO DA SILVA","nayara.1368374@edutec.sed.ms.gov.br"],
+["PEDRO BRUNO MASSAVY GARCIA","pedro.1424788@edutec.sed.ms.gov.br"],
+["RAYSSA MARIA PEREIRA GARCIA","rayssa.1366492@edutec.sed.ms.gov.br"],
+["RHAYKA BEATRIZ ALVES DE OLIVEIRA RODRIGUES","rhayka.1300268@edutec.sed.ms.gov.br"],
+["RODRIGO JUNIOR NERIS STUMM","rodrigo.1439345@edutec.sed.ms.gov.br"],
+["RYAN NUNES BASCOPE","ryan.1276551@edutec.sed.ms.gov.br"],
+["WILLIAN PEREIRA VARGAS","willian.1337689@edutec.sed.ms.gov.br"]
+];
+
+    gerarLista("anoA", anoA);
+    gerarLista("anoB", anoB);
+	gerarLista("ano2A", ano2A);
+	gerarLista("ano3B", ano3B);
+
+    trocarAba("anoA");
+
+});
+</script>
+
+<footer>
+    Escola Estadual Dr. João Leite de Barros | Turmas 2026
+</footer>
+
+</body>
+</html>
