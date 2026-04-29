@@ -13,7 +13,7 @@ body {
 }
 
 header {
-    background: #2c3e50;
+    background: #043A06;
     color: white;
     padding: 15px;
     text-align: center;
@@ -80,7 +80,7 @@ button {
 }
 
 footer {
-    background: #2c3e50;
+    background: #043A06;
     color: white;
     text-align: center;
     padding: 10px;
@@ -104,20 +104,24 @@ body {
 
 <div class="topo">
     <button onclick="copiarSite()">Copiar site MS Speaks</button>
-    <button onclick="abrirGuiado()">Instruções aqui!</button>
 </div>
 
 <div class="tabs">
     <button id="btn-anoA" class="tab-btn" onclick="trocarAba('anoA')">1º Ano A</button>
     <button id="btn-anoB" class="tab-btn" onclick="trocarAba('anoB')">1º Ano B</button>
 	<button id="btn-ano2A" class="tab-btn" onclick="trocarAba('ano2A')">2º Ano A</button>
+	<button id="btn-ano2B" class="tab-btn" onclick="trocarAba('ano2B')">2º Ano B</button>
+	<button id="btn-ano3A" class="tab-btn" onclick="trocarAba('ano3A')">3º Ano A</button>
 	<button id="btn-ano3B" class="tab-btn" onclick="trocarAba('ano3B')">3º Ano B</button>
+	<button id="btn-instrucoes" class="tab-btn" onclick="trocarAba('instrucoes')">Instruções de Acesso</button>
 	<button id="btn-info" class="tab-btn" onclick="trocarAba('info')">Sobre o MS Speaks</button>
 </div>
 
 <div id="anoA" class="container"></div>
 <div id="anoB" class="container"></div>
 <div id="ano2A" class="container"></div>
+<div id="ano2B" class="container"></div>
+<div id="ano3A" class="container"></div>
 <div id="ano3B" class="container"></div>
 
 <!-- GUIA -->
@@ -185,6 +189,160 @@ body {
         Fonte: Secretaria de Estado de Educação de Mato Grosso do Sul (SED-MS)
     </p>
 </div>
+
+<div id="instrucoes" class="container">
+    <h3>📘 Instruções para acessar o MS Speaks</h3>
+
+    <p style="background:#fff3cd; padding:12px; border-radius:8px;">
+        ⚠️ <b>Atenção, estudante!</b><br>
+        Leia todas as orientações antes de acessar a plataforma.
+    </p>
+
+    <h4>🌐 1. Copie o site do MS Speaks</h4>
+    <p>
+        Primeiro, clique no botão abaixo para copiar o endereço do site:
+    </p>
+
+    <button onclick="copiarSite()" class="copy">
+        Copiar site MS Speaks
+    </button>
+
+    <p>
+        Depois, clique no sinal <b>+</b> do navegador para abrir uma nova aba.
+        Se preferir, use o atalho:
+    </p>
+
+    <p style="background:#eaf2f8; padding:10px; border-radius:8px;">
+        💻 <b>Computador:</b> Ctrl + SHIFT + N <br>
+        📱 <b>Celular:</b> toque no botão de abas e depois no sinal <b>+</b>
+    </p>
+
+    <p>
+        Em seguida, cole o site na barra de endereço usando:
+    </p>
+
+    <p style="background:#eafaf1; padding:10px; border-radius:8px;">
+        Ctrl + V
+    </p>
+
+    <hr>
+
+    <h4>📧 2. Copie o seu e-mail</h4>
+    <p>
+        Volte para a página da sua turma e localize o seu nome.
+        Clique no botão <b>Copiar</b> ao lado do seu e-mail.
+    </p>
+
+    <p>
+        Depois, volte para o site do MS Speaks e cole o e-mail no campo solicitado.
+    </p>
+
+    <hr>
+
+    <h4>🔐 3. Senha do primeiro acesso</h4>
+    <p>
+        A senha inicial será sempre a sua <b>data de nascimento</b>,
+        usando somente números no formato:
+    </p>
+
+    <p style="background:#eaf2f8; padding:10px; border-radius:8px;">
+        <b>ddmmaaaa</b>
+    </p>
+
+    <p>
+        ✅ Exemplo:<br>
+        Se você nasceu em <b>1 de abril de 1990</b>,
+        a senha será:
+    </p>
+
+    <p style="background:#d4edda; padding:10px; border-radius:8px;">
+        <b>01041990</b>
+    </p>
+
+    <p>
+        Após o primeiro acesso, o sistema solicitará a criação de uma nova senha pessoal.
+    </p>
+
+    <p style="background:#fff3cd; padding:10px; border-radius:8px;">
+        ✏️ <b>Importante:</b> anote essa nova senha no seu caderno para usar sempre que necessário.
+    </p>
+
+    <hr>
+
+    <h4>🎓 Sobre o e-mail Edutec</h4>
+
+    <p>
+        Sua conta institucional <b>@edutec.sed.ms.gov.br</b> é a sua identidade digital na educação.
+    </p>
+
+    <p>
+        Com ela, você poderá acessar diversos serviços educacionais disponibilizados pela
+        Secretaria de Estado de Educação de Mato Grosso do Sul.
+    </p>
+
+    <p>
+        Esse e-mail pode ser utilizado como uma conta Google normal no celular,
+        permitindo:
+    </p>
+
+    <ul>
+        <li>armazenar arquivos e dados</li>
+        <li>usar Google Drive</li>
+        <li>acessar plataformas educacionais</li>
+        <li>fazer login em aplicativos</li>
+    </ul>
+
+    <p>
+        Você também poderá utilizar gratuitamente plataformas parceiras do Estado, como:
+    </p>
+
+    <ul>
+        <li>📘 MS Speaks</li>
+        <li>🎨 Canva for Education</li>
+        <li>☁️ Google for Education</li>
+    </ul>
+
+    <p style="background:#fdecea; padding:10px; border-radius:8px;">
+        ⚠️ <b>Atenção:</b> essa conta não expira.
+        Use com responsabilidade, pois você é o responsável pela segurança e uso correto.
+    </p>
+</div>
+
+
+<hr>
+
+<h4>📱 4. Acesse também pelo celular</h4>
+
+<p>
+    Você também pode utilizar o <b>MS Speaks</b> pelo aplicativo no celular,
+    facilitando o acesso nas horas livres.
+</p>
+
+<p>
+    Basta baixar o aplicativo na <b>Play Store</b>:
+</p>
+
+<a href="https://play.google.com/store/apps/details?id=com.efekta.school.b2s" target="_blank">
+    <button class="copy">
+        📥 Baixar aplicativo
+    </button>
+</a>
+
+<p style="margin-top:15px;">
+    Ou escaneie o QR Code abaixo:
+</p>
+
+<div style="text-align:center; margin-top:10px;">
+    <img 
+        src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://play.google.com/store/apps/details?id=com.efekta.school.b2s" 
+        alt="QR Code MS Speaks"
+        style="border:1px solid #ccc; border-radius:10px; padding:5px;"
+    >
+</div>
+
+<p style="background:#eafaf1; padding:10px; border-radius:8px; margin-top:15px;">
+    📌 <b>Dica:</b> Use o aplicativo para estudar em casa nos momentos livre.
+</p>
 
 <script>
 function copiarEmail(email) {
@@ -396,6 +554,80 @@ const ano2A = [
 ["YASMIN VITORIA ALENCASTRO DE ARRUDA BONFIM","yasmin.1374504@edutec.sed.ms.gov.br"]
 ];
 
+const ano2B = [
+["ALIANE VITORIA DE ALMEIDA BORDAS","aliane.1330753@edutec.sed.ms.gov.br"],
+["ANA VITÓRIA SAMUDIO HERNANDES","ana.1238712@edutec.sed.ms.gov.br"],
+["ANDREI WAGNER DA COSTA GOMES","andrei.1312174@edutec.sed.ms.gov.br"],
+["ANNY VIRGINIA DA SILVA E SOUSA","anny.1283116@edutec.sed.ms.gov.br"],
+["ANY MARRIE CLARICE COSTA DE BARROS","any.1320301@edutec.sed.ms.gov.br"],
+["CARLOS EDUARDO DO VALLE SANTANA","carlos.930296@edutec.sed.ms.gov.br"],
+["EDILAINE LIMA RODRIGUES","edilaine.1052671@edutec.sed.ms.gov.br"],
+["EMANUELLI BENITEZ DA CONCEIÇÃO","emanuelli.1240238@edutec.sed.ms.gov.br"],
+["GABRIEL ALVES DE MORAES","gabriel.1370694@edutec.sed.ms.gov.br"],
+["GABRIEL MIRANDA FLORES DO NASCIMENTO","gabriel.1274492@edutec.sed.ms.gov.br"],
+["GUSTAVO AZEVEDO RIBEIRO RIPARI","gustavo.1368338@edutec.sed.ms.gov.br"],
+["HEMILLY GABRIELLE DOS SANTOS FONSECA","hemilly.1291076@edutec.sed.ms.gov.br"],
+["IZADORA LETICIA DE MAGALHÃES ALVAREZ OJEDA","izadora.1167919@edutec.sed.ms.gov.br"],
+["JOÃO GABRIEL MELGAREJO DAS NEVES","joao.1231571@edutec.sed.ms.gov.br"],
+["JORGE MIGUEL ORTIZ DOS SANTOS ABREU","jorge.1062793@edutec.sed.ms.gov.br"],
+["KARINE BARBOSA DE SOUZA","karine.1358434@edutec.sed.ms.gov.br"],
+["KAROLYNE GIL BENEVIDES","karolyne.1362866@edutec.sed.ms.gov.br"],
+["KAUANY VITORIA RODRIGUES DA SILVA","kauany.1412861@edutec.sed.ms.gov.br"],
+["KLISTINY GALEANO DE PINHO","klistiny.1155900@edutec.sed.ms.gov.br"],
+["LARISSA AJALA GARCIA NOGUEIRA","larissa.955386@edutec.sed.ms.gov.br"],
+["LUAN VICTOR DOS SANTOS SOARES","luan.1359380@edutec.sed.ms.gov.br"],
+["LUCAS MENDONÇA OSSINAGA","lucas.1372500@edutec.sed.ms.gov.br"],
+["LUIZA GAMARRA DA SILVA","luiza.1032192@edutec.sed.ms.gov.br"],
+["MARIA EDUARDA MONTEIRO DE CASTRO","maria.865745@edutec.sed.ms.gov.br"],
+["MARIA EDUARDA SANTOS CHALEGA","maria.1413167@edutec.sed.ms.gov.br"],
+["MATHEUS SOARES ROCHA","matheus.1361861@edutec.sed.ms.gov.br"],
+["MURILO DE AMORIM PAULA","murilo.1329433@edutec.sed.ms.gov.br"],
+["NICOLY AUXILIADORA ADOR CANIDO","nicoly.1276172@edutec.sed.ms.gov.br"],
+["ODILON CHALIS","odilon.1374707@edutec.sed.ms.gov.br"],
+["PEDRO HENRIQUE MORAES DE TOLEDO SOARES","pedro.1238417@edutec.sed.ms.gov.br"],
+["RAFAELA RODRIGUES SOARES","rafaela.1324020@edutec.sed.ms.gov.br"],
+["RAQUEL AMANDA ARAGÃO DE BARROS","raquel.1037514@edutec.sed.ms.gov.br"],
+["THAVINY MARIA MORAES DE TOLEDO SOARES","thaviny.1238393@edutec.sed.ms.gov.br"],
+["VICTOR FELIPE MOURA MOSCIARO","victor.1251525@edutec.sed.ms.gov.br"],
+["VINICIUS CLEMENCIO DA SILVA","vinicius.919822@edutec.sed.ms.gov.br"]
+];
+
+const ano3A = [
+["ADVAIL GOMES DE SOUZA JUNIOR","advail.1301785@edutec.sed.ms.gov.br"],
+["ALINNE LOBO RODRIGUES","alinne.1311375@edutec.sed.ms.gov.br"],
+["ALYSSON DE DEUS MENEGON LIMA","alysson.1290215@edutec.sed.ms.gov.br"],
+["BRYAN GUILHERME SENTENE DIAS","bryan.1334452@edutec.sed.ms.gov.br"],
+["CAUÃ JUNIOR ALVES RACHID DE MORAES","caua.1370885@edutec.sed.ms.gov.br"],
+["DANIEL LEITE DAS NEVES","daniel.1177994@edutec.sed.ms.gov.br"],
+["EDGAR NOGUEIRA AVILES APONTE","edgar.1243333@edutec.sed.ms.gov.br"],
+["EMANUELLY FERNANDA MANCILHA MONTEIRO","emanuelly.1325571@edutec.sed.ms.gov.br"],
+["FLAVIA OLIVEIRA DE ALMEIDA","flavia.1325863@edutec.sed.ms.gov.br"],
+["GEOVANA VITÓRIA DE ARRUDA DURAN","geovana.1301786@edutec.sed.ms.gov.br"],
+["JOÃO VICTOR AMARILHO DOS SANTOS","joao.1326016@edutec.sed.ms.gov.br"],
+["JULIA MONTEIRO MELO","julia.946808@edutec.sed.ms.gov.br"],
+["JÚLLYA LEITE DA SILVA FLORES","jullya.1315260@edutec.sed.ms.gov.br"],
+["LISANDRO DOS SANTOS RAMIREZ","lisandro.1314424@edutec.sed.ms.gov.br"],
+["LORRAYNE GONÇALVES PEREIRA","lorrayne.884098@edutec.sed.ms.gov.br"],
+["LUAN WALTER GARCIA FLORES","luan.1322712@edutec.sed.ms.gov.br"],
+["LUCCAS VINICIUS AMBRÓSIO PORCINO","luccas.1313797@edutec.sed.ms.gov.br"],
+["MARCEL0 EDUARDO DELGADO DE SOUZA NANTES","marcelo.1315744@edutec.sed.ms.gov.br"],
+["MARIO VITOR DE SOUZA MACIEL","mario.1314369@edutec.sed.ms.gov.br"],
+["MAYRAH MÉDILLEY DE SOUZA FERREIRA","mayrah.1233269@edutec.sed.ms.gov.br"],
+["MICKAELLY DE ARAUJO FRAGOSO","mickaelly.1314808@edutec.sed.ms.gov.br"],
+["MURILO GARCIA FERNANDES SALES","murilo.1335067@edutec.sed.ms.gov.br"],
+["PEDRO LUCAS WASHINGTON DA SILVA NAKAZONE","pedro.1266985@edutec.sed.ms.gov.br"],
+["RIKELMY AFONSO DE OLIVEIRA","rikelmy.1322951@edutec.sed.ms.gov.br"],
+["SAMUEL LOBO RONDON","samuel.1311250@edutec.sed.ms.gov.br"],
+["STEPHANY CAROLINE BEZERRA LEITE","stephany.1424009@edutec.sed.ms.gov.br"],
+["TAHANNYA VITORIA NASCIMENTO FERREIRA","tahannya.1323487@edutec.sed.ms.gov.br"],
+["TAMIRES FLORES RODRIGUES","tamires.1269584@edutec.sed.ms.gov.br"],
+["VINICIUS DE SOUZA FREITAS","vinicius.1314921@edutec.sed.ms.gov.br"],
+["VINICIUS PEREYRA DIAS","vinicius.1327797@edutec.sed.ms.gov.br"],
+["VITOR HUGO FARDINO URQUIZA","vitor.866587@edutec.sed.ms.gov.br"],
+["VITOR HUGO VARGAS VEIGA","vitor.865569@edutec.sed.ms.gov.br"],
+["YOHANNA ESTHER BONFIM WUNDER","yohanna.1276060@edutec.sed.ms.gov.br"]
+];
+
 const ano3B = [
 ["ALEIDA LEMOS DE CARVALHO DA SILVA","aleida.1311106@edutec.sed.ms.gov.br"],
 ["ANA LIDIA PEREIRA FLORIANO","ana.1338055@edutec.sed.ms.gov.br"],
@@ -440,6 +672,8 @@ const ano3B = [
     gerarLista("anoA", anoA);
     gerarLista("anoB", anoB);
 	gerarLista("ano2A", ano2A);
+	gerarLista("ano2B", ano2B);
+	gerarLista("ano3A", ano3A);
 	gerarLista("ano3B", ano3B);
 
     trocarAba("anoA");
