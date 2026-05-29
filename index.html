@@ -113,6 +113,7 @@ body {
 	<button id="btn-ano2B" class="tab-btn" onclick="trocarAba('ano2B')">2º Ano B</button>
 	<button id="btn-ano3A" class="tab-btn" onclick="trocarAba('ano3A')">3º Ano A</button>
 	<button id="btn-ano3B" class="tab-btn" onclick="trocarAba('ano3B')">3º Ano B</button>
+	<button id="btn-ano3C" class="tab-btn" onclick="trocarAba('ano3C')">3º Ano - Albuquerque</button>
 	<button id="btn-instrucoes" class="tab-btn" onclick="trocarAba('instrucoes')">Instruções de Acesso</button>
 	<button id="btn-info" class="tab-btn" onclick="trocarAba('info')">Sobre o MS Speaks</button>
 </div>
@@ -123,6 +124,7 @@ body {
 <div id="ano2B" class="container"></div>
 <div id="ano3A" class="container"></div>
 <div id="ano3B" class="container"></div>
+<div id="ano3C" class="container"></div>
 
 <!-- GUIA -->
 <div id="guia" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:#000000aa; justify-content:center; align-items:center;">
@@ -672,12 +674,43 @@ const ano3B = [
 ["WILLIAN PEREIRA VARGAS","willian.1337689@edutec.sed.ms.gov.br"]
 ];
 
+const ano3C = [
+["ALESSANDRO DA SILVA SOUZA","alessandro.1374111@edutec.sed.ms.gov.br"],
+["ANA ARIELLY SENA INSFRAN","ana.755259@edutec.sed.ms.gov.br"],
+["ANDRESSA DOS REIS CASTELO","andressa.868401@edutec.sed.ms.gov.br"],
+["BRUNO DE JESUS NORBERTO","bruno.1379399@edutec.sed.ms.gov.br"],
+["ELOIZA RODRIGUES MOREIRA AZEVEDO","eloiza.1376706@edutec.sed.ms.gov.br"],
+["EVANDRO MOSQUEIRA DA SILVA","evandro.862969@edutec.sed.ms.gov.br"],
+["JOÃO PEDRO RAMOS DA SILVA","joao.1376974@edutec.sed.ms.gov.br"],
+["JORGINA SOARES DO COUTO","jorgina.1275704@edutec.sed.ms.gov.br"],
+["KAREN PEREIRA DOS SANTOS","karen.1429547@edutec.sed.ms.gov.br"],
+["KAUA VICTOR SOARES MOREIRA","kaua.1373355@edutec.sed.ms.gov.br"],
+["KELLY PEREIRA DOS SANTOS","kelly.1429495@edutec.sed.ms.gov.br"],
+["LARA SOUZA SILVA","lara.1369477@edutec.sed.ms.gov.br"],
+["LAUANY VITORIA DA SILVA DE JESUS","lauany.1372376@edutec.sed.ms.gov.br"],
+["LUCAS CAMPOSANO MENDES","lucas.973961@edutec.sed.ms.gov.br"],
+["MARIA APARECIDA SOARES COUTO","maria.1369983@edutec.sed.ms.gov.br"],
+["MARIA CLARA DE ARAUJO ANDRADE","maria.1283408@edutec.sed.ms.gov.br"],
+["MARIVANIA PACIFICO SANABRIA","marivania.898392@edutec.sed.ms.gov.br"],
+["MARLON WANDERLEY DOS SANTOS RAMOS DA SILVA","marlon.1368128@edutec.sed.ms.gov.br"],
+["RAFAEL MENDES DO NASCIMENTO","rafael.990012@edutec.sed.ms.gov.br"],
+["RAISSA DA SILVA MENDES","raissa.1364398@edutec.sed.ms.gov.br"],
+["RAMIRO SADRAQUE NERE DA SILVA E SILVA","ramiro.1369529@edutec.sed.ms.gov.br"],
+["RODRIGO PACÍFICO SANABRIA","rodrigo.898381@edutec.sed.ms.gov.br"],
+["TALIA BEZERRA VALENTIM","talia.1371288@edutec.sed.ms.gov.br"],
+["THALITA DE SOUZA SOARES","thalita.1367912@edutec.sed.ms.gov.br"],
+["VITOR GABRIEL SANABRIA DA CUNHA","vitor.1331046@edutec.sed.ms.gov.br"],
+["YARA MORENO FERNANDES DE SOUZA","yara.1364403@edutec.sed.ms.gov.br"],
+["YASMIM DA SILVA MORAES","yasmim.1374629@edutec.sed.ms.gov.br"]
+];
+
     gerarLista("anoA", anoA);
     gerarLista("anoB", anoB);
 	gerarLista("ano2A", ano2A);
 	gerarLista("ano2B", ano2B);
 	gerarLista("ano3A", ano3A);
 	gerarLista("ano3B", ano3B);
+	gerarLista("ano3C", ano3C);
 
     trocarAba("anoA");
 
